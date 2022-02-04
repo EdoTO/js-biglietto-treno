@@ -29,8 +29,6 @@
 
             const yourName = prompt ("Inserire il nome e cognome del viaggiatore")
 
-            console.log (yourName);
-
             if (yourName.length < 8) {
                 alert ("Inserire il nome correttamente")
                 return calculateTicket();
@@ -38,16 +36,12 @@
 
             const yourAge = prompt ("Quanti anni hai?");
 
-            console.log (yourAge);
-
             if (yourAge < 1) {
                 alert("I minori di 1 anno non possono viaggiare su questo treno");
                 return calculateTicket();
             } 
 
             const totalKm = prompt ("Quanti km vuoi percorrere");
-
-            console.log (totalKm);
 
             if (totalKm < 1) {
                 alert("Per favore inserisci i dati correttamente");
