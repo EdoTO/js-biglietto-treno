@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    
+   <div class="container text-center">
+        <h1>Benvenuto nel nostro calcolatore automatico</h1>
+        <h2>Calcola subito il prezzo del tuo biglietto</h2>
+        <br>
+        <button id="cliccami" onclick="calculateTicket()">Clicca qui</button>
+   </div>
+   <br>
+   <div class="container">
+        <div class="row">
+            <div class="col-6 m-auto">
+                <h6 class="text-center">*Ricordiamo ai gentili viaggiatori che i minori e i passeggeri con un età <br> superiore ai 65 anni otterranno rispettivamente il 20% e il 40% di sconto*</h6>
+            </div>
+        </div>  
+   </div>
+
+    <script>    
+        function calculateTicket() {
+
+            const yourName = prompt ("Inserire il nome e cognome del viaggiatore")
+
+            console.log (yourName);
+
+            if (yourName.length < 8) {
+                alert ("Inserire il nome correttamente")
+                return calculateTicket();
+            }
+
+            const yourAge = prompt ("Quanti anni hai?");
+
+            console.log (yourAge);
+
+            if (yourAge < 1) {
+                alert("I minori di 1 anno non possono viaggiare su questo treno");
+                return calculateTicket();
+            } 
+
+            const totalKm = prompt ("Quanti km vuoi percorrere");
+
+            console.log (totalKm);
+
+            if (totalKm < 1) {
+                alert("Per favore inserisci i dati correttamente");
+                return calculateTicket();
+            }
+
+            const ticketPricePerKm = 0.21;
+
+            const totalTicketPriceAdults = (ticketPricePerKm * totalKm);
+
+            const totalTicketPriceUnderAge = (totalTicketPriceAdults * 0.8);
+
+            const totalTicketPriceElders = (totalTicketPriceAdults * 0.6);
+
+            if (totalKm >= 1 && yourAge >= 18 && yourAge < 65){
+                alert("Ciao " + yourName + "! Il prezzo del tuo biglietto è: " + totalTicketPriceAdults + " €");
+            } else if (totalKm >= 1 && yourAge <= 17) {
+                alert("Ciao " + yourName + "! Il prezzo del tuo biglietto è: " + totalTicketPriceUnderAge + " €");
+            } else if (yourAge >= 65) {
+                alert("Ciao " + yourName + "! Il prezzo del tuo biglietto è: " + totalTicketPriceElders + " €");
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
